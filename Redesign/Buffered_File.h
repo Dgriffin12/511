@@ -1,0 +1,24 @@
+#ifndef BUFFERED_FILE_H
+#define BUFFERED_FILE_H
+#include "TrackingDeque.h"
+#include <fstream>
+
+class Buffered_File : public fstream
+{
+	public:
+	Buffered_File(char* filename);
+	~Buffered_File();
+	int get(char &ch, int &get_pos, int &replacements);
+	int get_and_push(int &get_pos, int &gets_to_push);
+	void put(int &put_pos, char &ch);
+	void partial_match(char ch, int match_position);
+	void complete_match();
+	TrackingDeque<char> queue;
+	void queue_print();
+
+	private:
+	int chars_remaining_from_search;
+	int chars_remaining_from_replace;
+	
+};
+#endif

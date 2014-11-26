@@ -1,0 +1,17 @@
+...abcabc..
+
+...xx...   (find first x at get_pos = 4)
+    ^^ <--put on stack
+
+...abc..     (  x. <--stack)
+      ^
+      get_pos
+
+...abc..    ( . <--stack), pop x, match, take next 2 '.'
+      ^get_pos
+
+...abcabc_    ( ...  <--stack)
+         ^get_pos
+
+	
+
